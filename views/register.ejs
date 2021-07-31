@@ -10,7 +10,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Create New Post</h1>
+                            <h1>Register New Account</h1>
                             <span class="subheading">Have questions? I have answers.</span>
                         </div>
                     </div>
@@ -25,23 +25,18 @@
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         <div class="my-5">
 
-                            <form action="/post/store" method="POST" enctype="multipart/form-data">
-                                <div class="form-floating mt-3">
-                                    <input class="form-control" id="title" type="text" placeholder="Title" name="title" />
-                                    <label for="title">Title</label>
+                            <form action="/user/register" method="POST" >
+                               
+                                    <label for="username" class = "mt-3">User Name</label>
+                                    <input class="form-control" id="username" type="text" placeholder="username" name="username" />
+                                  
+                                    <label .mt-3  for="password" class = "mt-3">Password</label>
+                                    <input class="form-control " id="password" type="password" placeholder="password" name="password" />
                                     
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <textarea class="form-control" id="body" placeholder="Description" style="height: 12rem" name="body" ></textarea>
-                                    <label for="body">Description</label>
-                                
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <input type="file" id="image" name="image">
-                                </div>
+                           
 
                                 <!-- Submit Button-->
-                                <button class="btn btn-primary text-uppercase mt-3 " id="submitButton" type="submit">Send</button>
+                                <button class="btn btn-primary text-uppercase mt-3 " id="submitButton" type="submit">Register</button>
                             </form>
                         </div>
                     </div>

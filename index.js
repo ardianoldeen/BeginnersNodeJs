@@ -9,7 +9,10 @@ const newPostController = require("./controllers/newPost");
 const createHomeController = require("./controllers/createHome");
 const getPostController = require("./controllers/getPost");
 const storePostController = require("./controllers/storePost");
+const validateMiddleWare = require("./middleware/validationMiddleware");
+const newUserController = require("./controllers/newUser");
 
+const storeUsercontroller = require("./controllers/storeUser");
 const app = express();
 const ejs = require("ejs");
 app.set("view engine", "ejs");
@@ -17,12 +20,6 @@ app.set("view engine", "ejs");
 let ejsOptions = {
   // delimiter: '?', Adding this to tell you do NOT use this like I've seen in other docs, does not work for Express 4
   async: true,
-};
-const validateMiddleWare = (req, res, next) => {
-  if (req.files == null || req.body.title == null) {
-    return res.redirect("/post/new");
-  }
-  next();
 };
 
 app.use(express.static("public"));
@@ -41,4 +38,8 @@ app.get("/post/new", newPostController);
 
 app.get("/post/:id", getPostController);
 
+app.get("/auth/register", newUserController);
+
 app.post("/post/store", storePostController);
+
+app.post("/user/register", storeUsercontroller);
