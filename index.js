@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/mydatabase", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+  useCreateIndex: true,
 });
 const fileUpload = require("express-fileupload");
 const newPostController = require("./controllers/newPost");
@@ -11,7 +12,8 @@ const getPostController = require("./controllers/getPost");
 const storePostController = require("./controllers/storePost");
 const validateMiddleWare = require("./middleware/validationMiddleware");
 const newUserController = require("./controllers/newUser");
-
+const loginController = require("./controllers/login");
+const loginUserController = require("./controllers/loginUsers");
 const storeUsercontroller = require("./controllers/storeUser");
 const app = express();
 const ejs = require("ejs");
@@ -43,3 +45,7 @@ app.get("/auth/register", newUserController);
 app.post("/post/store", storePostController);
 
 app.post("/user/register", storeUsercontroller);
+
+app.get("auth/login", loginController);
+
+app.post("/users/login", loginUserController);
