@@ -34,7 +34,13 @@
                                 <div class="form-floating mt-3">
                                     <textarea class="form-control" id="body" placeholder="Description" style="height: 12rem" name="body" ></textarea>
                                     <label for="body">Description</label>
-                                
+                                    <script>
+                                        $('#body').summernote({
+                                        placeholder: 'Hello bootstrap 4',
+                                        tabsize: 2,
+                                        height: 200
+                                        });
+                                        </script>
                                 </div>
                                 <div class="form-floating mt-3">
                                     <input type="file" id="image" name="image">

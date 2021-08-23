@@ -51,13 +51,11 @@ app.use("*", (req, res, next) => {
   loggedIn = req.session.userID;
   next();
 });
-
 app.get("/", createHomeController);
-app.get("/post/new", authMiddleware, newPostController);
-app.get("/post/:id", getPostController);
-app.get("/auth/logout", logoutController);
-app.post("/post/store", authMiddleware, storePostController);
 
+app.get("/post/new", authMiddleware, newPostController);
+
+app.post("/post/store", authMiddleware, storePostController);
 app.get("/auth/register", redirectIfAuthenticatedMiddleware, newUserController);
 app.post(
   "/user/register",
@@ -66,5 +64,6 @@ app.post(
 );
 app.get("/auth/login", redirectIfAuthenticatedMiddleware, loginController);
 app.post("/user/login", redirectIfAuthenticatedMiddleware, loginUserController);
-
+app.get("/post/:id", getPostController);
+app.get("/auth/logout", logoutController);
 app.use((req, res) => res.render("notfound"));
